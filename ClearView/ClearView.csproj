@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ExtendedDefinitions\CloseableTabItem.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FolderTools\FolderTools.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CV.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CV.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CV.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>CV.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

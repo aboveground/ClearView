@@ -1,0 +1,38 @@
+﻿<Window x:Class="ClearView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClearView"
+        xmlns:extended="clr-namespace:ClearView.ExtendedDefinitions"
+        mc:Ignorable="d"
+        Title="{Binding MainTitle}" Top="{Binding Top, Mode=TwoWay}" Left="{Binding Left, Mode=TwoWay}" Height="{Binding Height, Mode=TwoWay}" Width="{Binding Width, Mode=TwoWay }" d:DesignWidth="679.111" d:DesignHeight="434.111">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <extended:ColumnDefinitionExtended x:Name="MessageAreaColumn" Width="{Binding MessageAreaWidth,Mode=TwoWay}" Visible="{Binding MesageAreaIsVisible}" />
+            <ColumnDefinition Width="4"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="Blue" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+                <Button Content="Click" Click="Button_Click"/>
+            <Label x:Name="myLabel" Grid.Row="1" Background="LightGray"/>
+        </Grid>
+        <GridSplitter Grid.Column="1" Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Columns"/>
+        <Grid Grid.Column="2" Background="Green">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="4"/>
+                <extended:RowDefinitionExtended x:Name="WorkBenchRow"  Height="{Binding WorkBenchSplitDistance, Mode=TwoWay }" Visible="{Binding IsWorkBenchCollapsed}"/>
+            </Grid.RowDefinitions>
+            <GridSplitter   Grid.Row="1" Background="Black" HorizontalAlignment="Stretch" ResizeDirection="Rows"/>
+            <Grid x:Name="MessageArea" Grid.Row="2" Grid.Column="3" Margin="3" Background="Yellow"  />
+        </Grid>
+
+    </Grid>
+</Window>
